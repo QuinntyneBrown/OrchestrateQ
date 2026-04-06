@@ -36,9 +36,8 @@ function Invoke-ClaudeAgent {
 
     Write-OrchestrateQLog "Claude: $exe $($argList -join ' ')" -Level DEBUG
 
-    $LASTEXITCODE = 0
     $output = & $exe @argList 2>&1
-    if ($LASTEXITCODE -gt 0) {
+    if ($LASTEXITCODE -and $LASTEXITCODE -ne 0) {
         throw "Claude exited with code ${LASTEXITCODE}: $output"
     }
 

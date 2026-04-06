@@ -40,9 +40,8 @@ function Invoke-CustomAgent {
 
     Write-OrchestrateQLog "Custom[$($Agent.Name)]: $exe $($argList -join ' ')" -Level DEBUG
 
-    $LASTEXITCODE = 0
     $output = & $exe @argList 2>&1
-    if ($LASTEXITCODE -gt 0) {
+    if ($LASTEXITCODE -and $LASTEXITCODE -ne 0) {
         throw "Custom agent '$($Agent.Name)' exited with code ${LASTEXITCODE}: $output"
     }
 
