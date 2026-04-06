@@ -1,0 +1,18 @@
+# PowerShell artifacts
+*.ps1xml
+TestResults.xml
+coverage.xml
+
+# OS artifacts
+.DS_Store
+Thumbs.db
+
+# Editor directories
+.vscode/
+.idea/
+*.suo
+*.user
+
+# Build/output
+dist/
+out/
